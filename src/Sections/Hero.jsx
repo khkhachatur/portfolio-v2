@@ -225,18 +225,21 @@ const Hero = () => {
             Scroll to see my
           </h2>
         </div>
-        <div className="hero-container c-space">
+        <div className="hero-container c-space ">
           <div className="flex justify-center items-center gap-2">
             <h2 className="hero-title z-2">HI I'M</h2>
             <h2 className="text-[#69141F] hero-title " id="title-span">
               KHACHATUR{" "}
             </h2>
           </div>
-          <h3 className="hero-desc z-2">
-            A fast-learning IT Developer & GIS Project Manager, ready to take on
-            new challenges and improve in the areas where I've already made an
-            impact.
-          </h3>
+          <div className="flex text-center items-center justify-center">
+            <h3 class="hero-desc z-2">
+              A fast-learning IT Developer &{" "}
+              <span class="whitespace-nowrap">GIS Project Manager</span>, ready
+              to take on new challenges and improve in the areas where I've
+              already made an impact.
+            </h3>
+          </div>
           <div className="hero-social">
             <button className="hero-btn">Push me</button>
             <div className="flex items-center gap-5 z-32" id="social">

@@ -15,6 +15,8 @@ body{
   .c-space {
     @apply lg:px-10 px-5;
   }
+
+  /* Hero section */
   .hero-bg{
     @apply absolute w-full bg-cover bg-center
   }
@@ -35,7 +37,7 @@ body{
     @apply text-[#69141F] text-center mt-40 md:text-7xl sm:text-6xl text-4xl font-normal
   }
   .hero-desc{
-    @apply text-[#DDDDDD]  xl:px-100 lg:px-50 md:px-30 px-20 text-center text-2xl font-thin
+    @apply text-[#FFFCEE] w-[35vw]  text-2xl font-thin break-words;
   }
   .hero-social{
     @apply flex justify-between  px-4
@@ -46,8 +48,29 @@ body{
   .portfolio{
     @apply  text-[#69141F] xl:mt-[-30px] lg:mt-[-20px] md:mt-[-10px] mt-0 text-[17vw] font-bold text-center leading-none 
   }
+
+  /* About section */
+
+  .about-desc{
+    @apply text-[#FFFCEE]  w-[60vw] text-center text-2xl font-light
+  }
+
+  /* Button Section */
+
+  .button-section{
+    @apply flex flex-col justify-center items-center gap-5 my-10
+  }
+  .button-text{
+    @apply text-[#FFFCEE] text-xl font-light
+  }
+  .button-circle{
+    @apply w-20 h-20 bg-white rounded-full cursor-pointer
+  }
+  .button-car{
+    @apply w-15 h-auto
+  }
 }
-.word-gradient {
-  
-}
+
+
+
 
