@@ -21,7 +21,7 @@ body{
   .hero-container{
     @apply flex flex-col justify-center 
   }
-  .hero-bnt{
+  .hero-btn{
  @apply text-[#69141F] bg-white px-2 py-1 rounded-4xl text-sm z-29 opacity-80 hover:opacity-100 duration-300 
   }
   .hero-title-1{

@@ -18,7 +18,8 @@ const Hero = () => {
     gsap.set("body", { background: "white" });
     gsap.set("#span-title", { opacity: 0 });
     gsap.set(".hero-desc", { opacity: 0 });
-    gsap.set(".hero-social", { opacity: 0 });
+    gsap.set(".social-icon", { opacity: 0 });
+    gsap.set(".hero-btn", { opacity: 0 });
 
     //text animations
 
@@ -165,6 +166,47 @@ const Hero = () => {
           stagger: 0.2,
         },
         "<+0.45"
+      )
+
+      //social section animation
+      .fromTo(
+        ".social-icon",
+        {
+          y: 50,
+          scale: 0,
+          rotate: -30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotate: 0,
+          stagger: 0.5,
+          direction: 1,
+          ease: "back.inOut",
+
+          yoyo: true,
+        },
+        "<+15"
+      )
+      //button animation
+      .fromTo(
+        ".hero-btn",
+        {
+          y: 80,
+          scale: 0,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+
+          stagger: 0.5,
+          direction: 2,
+          ease: "back.inOut",
+          yoyo: true,
+        },
+        "<"
       );
   });
 
@@ -196,8 +238,8 @@ const Hero = () => {
             impact.
           </h3>
           <div className="hero-social">
-            <button className="hero-bnt">Push me </button>
-            <div className="flex items-center gap-5" id="social">
+            <button className="hero-btn">Push me</button>
+            <div className="flex items-center gap-5 z-32" id="social">
               <a
                 href="https://github.com/khkhachatur"
                 target="_blank"
