@@ -15,14 +15,24 @@ body{
   .c-space {
     @apply lg:px-10 px-5;
   }
+  .hero-bg{
+    @apply absolute w-full bg-cover bg-center
+  }
   .hero-container{
     @apply flex flex-col justify-center 
   }
   .hero-bnt{
  @apply text-[#69141F] bg-white px-2 py-1 rounded-4xl text-sm z-29 opacity-80 hover:opacity-100 duration-300 
   }
+  .hero-title-1{
+
+    @apply text-[#69141F] mt-40 md:text-8xl sm:text-6xl text-4xl font-normal absolute
+  }
   .hero-title{
     @apply text-[#FFFCEE] text-center mt-40 md:text-7xl sm:text-6xl text-4xl font-normal
+  }
+  .title-span{
+    @apply text-[#69141F] text-center mt-40 md:text-7xl sm:text-6xl text-4xl font-normal
   }
   .hero-desc{
     @apply text-[#DDDDDD]  xl:px-100 lg:px-50 md:px-30 px-20 text-center text-2xl font-thin
@@ -37,3 +47,7 @@ body{
     @apply  text-[#69141F] xl:mt-[-30px] lg:mt-[-20px] md:mt-[-10px] mt-0 text-[17vw] font-bold text-center leading-none 
   }
 }
+.word-gradient {
+  
+}
+
