@@ -16,7 +16,6 @@ const Hero = () => {
     //Animation preparations
 
     gsap.set("body", { background: "white" });
-    gsap.set("#span-title", { opacity: 0 });
     gsap.set(".hero-desc", { opacity: 0 });
     gsap.set(".social-icon", { opacity: 0 });
     gsap.set(".hero-btn", { opacity: 0 });
@@ -72,16 +71,16 @@ const Hero = () => {
         "<"
       )
       .fromTo(
-        ".hero-bg",
+        "#main-bg",
+        { opacity: 0, y: "0vh" },
         {
-          opacity: 0,
-          w: 0.9,
-        },
-        { opacity: 1, ease: "sine.in", w: 1 }
+          opacity: 1,
+          y: "0vh",
+          ease: "sine.in",
+        }
       )
       .to("#bg-slice", {
         opacity: 0,
-
         ease: "sine.out",
       })
       // Title animations
@@ -213,7 +212,12 @@ const Hero = () => {
   return (
     <section>
       <div className="relative w-full overflow-hidden" id="start">
-        <img src="/images/khachatur.png" alt="" className="hero-bg" />
+        <img
+          src="/images/khachatur.png"
+          alt=""
+          className="hero-bg"
+          id="main-bg"
+        />
         <div className="absolute flex justify-center">
           <img src="/images/bg-1.png" alt="" id="bg-slice" />
           <img src="/images/bg-2.png" alt="" id="bg-slice" />
@@ -233,11 +237,11 @@ const Hero = () => {
             </h2>
           </div>
           <div className="flex text-center items-center justify-center">
-            <h3 class="hero-desc z-2">
+            <h3 className="hero-desc z-2">
               A fast-learning IT Developer &{" "}
-              <span class="whitespace-nowrap">GIS Project Manager</span>, ready
-              to take on new challenges and improve in the areas where I've
-              already made an impact.
+              <span className="whitespace-nowrap">GIS Project Manager</span>,
+              ready to take on new challenges and improve in the areas where
+              I've already made an impact.
             </h3>
           </div>
           <div className="hero-social">

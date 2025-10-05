@@ -17,8 +17,9 @@ body{
   }
 
   /* Hero section */
-  .hero-bg{
-    @apply absolute w-full bg-cover bg-center
+  .hero-bg {
+    @apply absolute top-0 left-0 w-full h-full object-cover;
+    transform-origin: center;
   }
   .hero-container{
     @apply flex flex-col justify-center 
@@ -37,7 +38,7 @@ body{
     @apply text-[#69141F] text-center mt-40 md:text-7xl sm:text-6xl text-4xl font-normal
   }
   .hero-desc{
-    @apply text-[#FFFCEE] w-[35vw]  text-2xl font-thin break-words;
+    @apply text-[#FFFCEE] w-[45vw] md:text-2xl sm:text-lg text-sm font-thin break-words;
   }
   .hero-social{
     @apply flex justify-between  px-4
@@ -52,16 +53,16 @@ body{
   /* About section */
 
   .about-desc{
-    @apply text-[#FFFCEE]  w-[60vw] text-center text-2xl font-light
+    @apply text-[#FFFCEE]  w-[60vw] text-center md:text-2xl sm:text-lg text-sm font-light
   }
 
   /* Button Section */
 
   .button-section{
-    @apply flex flex-col justify-center items-center gap-5 my-10
+    @apply flex flex-col justify-center items-center my-10
   }
   .button-text{
-    @apply text-[#FFFCEE] text-xl font-light
+    @apply text-[#FFFCEE] md:text-xl text-sm font-light
   }
   .button-circle{
     @apply w-20 h-20 bg-white rounded-full cursor-pointer
@@ -69,6 +70,14 @@ body{
   .button-car{
     @apply w-15 h-auto
   }
+  .svg-container{
+    @apply absolute top-700 left-0 flex justify-center items-center w-full h-[3572px]
+  }
+
+  /* Work section */
+  /* .work-section{
+@apply flex justify-center items-center w-[30vw]
+  } */
 }
 
 
