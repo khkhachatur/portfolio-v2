@@ -1,99 +1,183 @@
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ExternalLink, Github, Play } from "lucide-react";
+
 import { myProjects } from "../Constants/index";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Projects = () => {
-  useGSAP(() => {
-    gsap.from(".project-card", {
-      opacity: 0,
-      y: 80,
-      stagger: 0.2,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ".projects-section",
-        start: "top 80%",
-      },
-    });
+  const sectionRef = useRef(null);
+  const gridRef = useRef(null);
+  const videoRefs = useRef([]);
+  const [hoveredProject, setHoveredProject] = useState(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Fade in title
+      gsap.from(".projects-title", {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+
+      // Animate cards in
+      gsap.from(".project-card", {
+        opacity: 0,
+        y: 80,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: "top 75%",
+        },
+      });
+
+      // Pin the section
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=150%",
+        scrub: 2.5,
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
+
+  const handleMouseEnter = (index) => {
+    setHoveredProject(index);
+    if (videoRefs.current[index]) {
+      videoRefs.current[index].play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = (index) => {
+    setHoveredProject(null);
+    if (videoRefs.current[index]) {
+      videoRefs.current[index].pause();
+      videoRefs.current[index].currentTime = 0;
+    }
+  };
 
   return (
     <section
-      className="projects-section py-24 bg-[#0f0f0f] text-white"
+      ref={sectionRef}
+      className="relative min-h-screen py-24 px-6 overflow-hidden text-white bg-gradient-to-b from-[#69141F] via-[#2a0a10] to-[#0f0f0f] "
+      //   style={{
+      //     background: "linear-gradient(to bottom, #69141F, #0f0f0f)",
+      //   }}
       id="projects"
     >
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-semibold mb-12 text-center">
-          My Projects
-        </h2>
+      {/* subtle overlay so it’s not too dark */}
+      <div className="absolute inset-0  pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="relative max-w-7xl mx-auto">
+        <div className="projects-title text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-3">
+            Featured Projects
+          </h2>
+          <p className="text-gray-300 text-lg">
+            A selection of my most creative and technical works
+          </p>
+        </div>
+
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-40 gap-y-10 px-30"
+        >
           {myProjects.map((project, index) => (
             <div
               key={index}
-              className="project-card bg-[#1c1c1c] rounded-2xl overflow-hidden shadow-lg border border-gray-800"
+              className="project-card relative group overflow-hidden rounded-2xl aspect-[4/5] bg-white/5 backdrop-blur-sm border border-white/10"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
             >
-              <div className="relative aspect-video overflow-hidden">
-                {project.video ? (
+              {/* Background video */}
+              <div className="absolute inset-0">
+                {project.video && (
                   <video
+                    ref={(el) => (videoRefs.current[index] = el)}
                     src={project.video}
-                    autoPlay
                     muted
                     loop
                     playsInline
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover transition-all duration-700 ${
+                      hoveredProject === index
+                        ? "opacity-100 scale-105"
+                        : "opacity-40 scale-100"
+                    }`}
                   />
-                ) : (
-                  <div className="w-full h-full bg-gray-700 flex items-center justify-center">
-                    <p className="text-gray-400">No Preview</p>
-                  </div>
                 )}
               </div>
 
-              <div className="p-6 space-y-3">
-                <div
-                  className="w-14 h-14 flex items-center justify-center rounded-xl"
-                  style={project.logoStyle}
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent transition-opacity duration-700" />
+
+              {/* Content */}
+              <div className="absolute bottom-0 p-6 flex flex-col justify-end z-10">
+                <h3
+                  className={`text-2xl font-bold mb-2 transition-colors duration-300 ${
+                    hoveredProject === index ? "text-[#69141F]" : "text-white"
+                  }`}
                 >
-                  <img
-                    src={project.logo}
-                    alt={project.title}
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 text-sm mb-4 ">{project.desc}</p>
 
-                <h3 className="text-2xl font-semibold">{project.title}</h3>
-                <p className="text-gray-300">{project.desc}</p>
-                <p className="text-gray-500 text-sm">{project.subdesc}</p>
-
-                {project.href && (
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-2 text-blue-400 hover:text-blue-300"
-                  >
-                    Visit project →
-                  </a>
-                )}
-
-                <div className="flex gap-4 flex-wrap pt-2">
-                  {project.tags.map((tag) => (
-                    <div key={tag.id} className="flex items-center gap-2">
-                      {tag.path && (
-                        <img
-                          src={tag.path}
-                          alt={tag.name}
-                          className="w-5 h-5 object-contain"
-                        />
-                      )}
-                      <span className="text-gray-400 text-sm">{tag.name}</span>
-                    </div>
+                {/* Tech */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags?.map((tag) => (
+                    <span
+                      key={tag.id}
+                      className="px-3 py-1 text-xs bg-white/10 rounded-full text-gray-300"
+                    >
+                      {tag.name}
+                    </span>
                   ))}
                 </div>
+
+                {/* Links */}
+                <div className="flex gap-3">
+                  {project.href && (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs transition-all"
+                    >
+                      <ExternalLink size={14} /> Demo
+                    </a>
+                  )}
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs transition-all"
+                  >
+                    <Github size={14} /> Code
+                  </a>
+                </div>
+              </div>
+
+              {/* Index Badge */}
+              <div className="absolute top-4 right-4 text-xs bg-[#69141F]/80 px-3 py-1 rounded-full font-medium">
+                0{index + 1}
               </div>
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm">
+        Hover to preview | Scroll to explore
       </div>
     </section>
   );

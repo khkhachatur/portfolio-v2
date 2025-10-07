@@ -24,8 +24,8 @@ body{
   .hero-container{
     @apply flex flex-col justify-center 
   }
-  .hero-btn{
- @apply text-[#69141F] bg-white px-2 py-1 rounded-4xl text-sm z-29 opacity-80 hover:opacity-100 duration-300 
+  .hero-copy{
+ @apply text-[#FFFCEE] flex gap-2 text-sm z-29 opacity-80 hover:opacity-100 duration-300 
   }
   .hero-title-1{
 
@@ -74,10 +74,28 @@ body{
     @apply absolute top-700 left-0 flex justify-center items-center w-full h-[3572px]
   }
 
-  /* Work section */
-  /* .work-section{
-@apply flex justify-center items-center w-[30vw]
-  } */
+/* Contact section */
+
+.contact-container {
+  @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
+}
+
+.field-label {
+  @apply text-lg text-[#FFFCEE];
+}
+
+.field-input {
+  @apply w-full bg-[rgba(0,0,0,0.4)] px-5 py-2 min-h-14 rounded-lg placeholder:text-[rgba(250,250,250,0.4)] text-lg text-white drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]  shadow-2xl focus:outline-none;
+}
+
+.field-btn {
+  @apply bg-[rgba(0,0,0,0.4)] hover:bg-black duration-500 px-5 py-2 min-h-12 rounded-lg drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+}
+
+.field-btn_arrow {
+  @apply w-2.5 h-2.5 object-contain invert brightness-0;
+}
+
 }
 
 

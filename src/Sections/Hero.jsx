@@ -1,7 +1,19 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
+import { useState } from "react";
+
 const Hero = () => {
+  const [hasCopied, setHasCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("khachatryankhachatur57@gmail.com");
+    setHasCopied(true);
+    setTimeout(() => {
+      setHasCopied(false);
+    }, 2000);
+  };
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -18,7 +30,7 @@ const Hero = () => {
     gsap.set("body", { background: "white" });
     gsap.set(".hero-desc", { opacity: 0 });
     gsap.set(".social-icon", { opacity: 0 });
-    gsap.set(".hero-btn", { opacity: 0 });
+    gsap.set(".hero-copy", { opacity: 0 });
 
     //text animations
 
@@ -190,7 +202,7 @@ const Hero = () => {
       )
       //button animation
       .fromTo(
-        ".hero-btn",
+        ".hero-copy",
         {
           y: 80,
           scale: 0,
@@ -245,7 +257,17 @@ const Hero = () => {
             </h3>
           </div>
           <div className="hero-social">
-            <button className="hero-btn">Push me</button>
+            <div className="hero-copy">
+              <p className="lg:text-l md:text-[10px] font-medium text-gray_gradient text-white">
+                khachatryankhachatur57@gmail.com
+              </p>
+              <div onClick={handleCopy} className="flex item-center">
+                <img
+                  src={hasCopied ? "/assets/tick.svg" : "/assets/copy.svg"}
+                  alt="copy"
+                />
+              </div>
+            </div>
             <div className="flex items-center gap-5 z-32" id="social">
               <a
                 href="https://github.com/khkhachatur"
