@@ -85,7 +85,7 @@ const Work = () => {
   }, [currentIndex, isHovered]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[#69141F]  py-20 px-4">
+    <section className="min-h-screen flex items-center justify-center bg-main-red  py-20 px-4">
       <div className="max-w-4xl w-full">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-white mb-4">

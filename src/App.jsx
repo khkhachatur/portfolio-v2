@@ -8,6 +8,7 @@ import Button from "./Sections/Button";
 import Footer from "./Sections/Footer";
 import Projects from "./Sections/Projects";
 import Contacts from "./Sections/Contacts";
+import Education from "./Sections/Education";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,9 +17,10 @@ function App() {
     <main>
       <Hero />
       <About />
-      {/* <Button /> */}
+      <Button />
       <Work />
       <Projects />
+      <Education />
       <Contacts />
       <Footer />
     </main>

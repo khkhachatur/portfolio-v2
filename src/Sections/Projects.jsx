@@ -70,14 +70,10 @@ const Projects = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen py-24 px-6 overflow-hidden text-white bg-gradient-to-b from-[#69141F] via-[#2a0a10] to-[#0f0f0f] "
-      //   style={{
-      //     background: "linear-gradient(to bottom, #69141F, #0f0f0f)",
-      //   }}
+      className="min-h-screen px-6 overflow-hidden text-white bg-gradient-to-b from-main-red via-[#2a0a10] to-[#0f0f0f] "
       id="projects"
     >
-      {/* subtle overlay so it’s not too dark */}
-      <div className="absolute inset-0  pointer-events-none"></div>
+      <div></div>
 
       <div className="relative max-w-7xl mx-auto">
         <div className="projects-title text-center mb-16">
@@ -125,7 +121,7 @@ const Projects = () => {
               <div className="absolute bottom-0 p-6 flex flex-col justify-end z-10">
                 <h3
                   className={`text-2xl font-bold mb-2 transition-colors duration-300 ${
-                    hoveredProject === index ? "text-[#69141F]" : "text-white"
+                    hoveredProject === index ? "text-main-red" : "text-white"
                   }`}
                 >
                   {project.title}
@@ -168,7 +164,7 @@ const Projects = () => {
               </div>
 
               {/* Index Badge */}
-              <div className="absolute top-4 right-4 text-xs bg-[#69141F]/80 px-3 py-1 rounded-full font-medium">
+              <div className="absolute top-4 right-4 text-xs bg-main-red/80 px-3 py-1 rounded-full font-medium">
                 0{index + 1}
               </div>
             </div>

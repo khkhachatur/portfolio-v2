@@ -26,7 +26,7 @@ const About = () => {
     )
       .fromTo(
         splitDesc.chars,
-        { opacity: 0.2, color: "#ffffff" },
+        { opacity: 0.2, color: "#FFFCEE" },
         {
           opacity: 1,
           duration: 0.3,
@@ -50,7 +50,7 @@ const About = () => {
       .to(
         splitDesc.chars,
         {
-          color: "#ffffff",
+          color: "#FFFCEE",
           textShadow: "0px 0px 0px transparent",
           duration: 0.1,
           ease: "power1.out",

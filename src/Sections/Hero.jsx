@@ -111,7 +111,7 @@ const Hero = () => {
       )
       .fromTo(
         splitSpan.chars,
-        { opacity: 0.2, color: "#fff" },
+        { opacity: 0.2, color: "#FFFCEE" },
         {
           opacity: 1,
 
@@ -147,7 +147,7 @@ const Hero = () => {
       .to(".hero-desc", { opacity: 1, duration: 2 }, "<+0.3")
       .fromTo(
         splitDesc.chars,
-        { opacity: 0.2, color: "#ffffff" },
+        { opacity: 0.2, color: "#FFFCEE" },
         {
           opacity: 1,
           duration: 0.3,
@@ -170,7 +170,7 @@ const Hero = () => {
       .to(
         splitDesc.chars,
         {
-          color: "#ffffff",
+          color: "#FFFCEE",
           textShadow: "0px 0px 0px transparent",
           duration: 0.3,
           ease: "power1.out",
@@ -183,7 +183,7 @@ const Hero = () => {
       .fromTo(
         ".social-icon",
         {
-          y: 50,
+          y: 30,
           scale: 0,
           rotate: -30,
         },
@@ -204,7 +204,7 @@ const Hero = () => {
       .fromTo(
         ".hero-copy",
         {
-          y: 80,
+          y: 30,
           scale: 0,
         },
         {
@@ -244,7 +244,7 @@ const Hero = () => {
         <div className="hero-container c-space ">
           <div className="flex justify-center items-center gap-2">
             <h2 className="hero-title z-2">HI I'M</h2>
-            <h2 className="text-[#69141F] hero-title " id="title-span">
+            <h2 className="text-main-red hero-title " id="title-span">
               KHACHATUR{" "}
             </h2>
           </div>
@@ -256,19 +256,18 @@ const Hero = () => {
               I've already made an impact.
             </h3>
           </div>
-          <div className="hero-social">
+          <div className="hero-social z-32">
             <div className="hero-copy">
-              <p className="lg:text-l md:text-[10px] font-medium text-gray_gradient text-white">
-                khachatryankhachatur57@gmail.com
-              </p>
+              <p>Copy my email</p>
               <div onClick={handleCopy} className="flex item-center">
                 <img
-                  src={hasCopied ? "/assets/tick.svg" : "/assets/copy.svg"}
+                  className="w-5 h-5"
+                  src={hasCopied ? "/icons/tick.svg" : "/icons/copy.svg"}
                   alt="copy"
                 />
               </div>
             </div>
-            <div className="flex items-center gap-5 z-32" id="social">
+            <div className="flex items-center gap-5 " id="social">
               <a
                 href="https://github.com/khkhachatur"
                 target="_blank"

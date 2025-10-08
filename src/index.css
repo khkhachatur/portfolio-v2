@@ -8,7 +8,11 @@
   scroll-behavior: smooth;
 }
 body{
-  background:#69141F
+  background:main-red
+}
+
+@theme {
+  --color-main-red: #69141F
 }
 
 @layer {
@@ -25,17 +29,17 @@ body{
     @apply flex flex-col justify-center 
   }
   .hero-copy{
- @apply text-[#FFFCEE] flex gap-2 text-sm z-29 opacity-80 hover:opacity-100 duration-300 
+ @apply text-[#FFFCEE] flex gap-2 items-center lg:text-sm  md:text-xs font-normal opacity-80 hover:opacity-100 duration-300 
   }
   .hero-title-1{
 
-    @apply text-[#69141F] mt-40 md:text-8xl sm:text-6xl text-4xl font-normal absolute
+    @apply text-main-red mt-40 md:text-8xl sm:text-6xl text-4xl font-normal absolute
   }
   .hero-title{
     @apply text-[#FFFCEE] text-center mt-40 md:text-7xl sm:text-6xl text-4xl font-normal
   }
   .title-span{
-    @apply text-[#69141F] text-center mt-40 md:text-7xl sm:text-6xl text-4xl font-normal
+    @apply text-main-red text-center mt-40 md:text-7xl sm:text-6xl text-4xl font-normal
   }
   .hero-desc{
     @apply text-[#FFFCEE] w-[45vw] md:text-2xl sm:text-lg text-sm font-thin break-words;
@@ -47,7 +51,7 @@ body{
     @apply w-7 h-7 opacity-80 hover:opacity-100 z-30 duration-300
   }
   .portfolio{
-    @apply  text-[#69141F] xl:mt-[-30px] lg:mt-[-20px] md:mt-[-10px] mt-0 text-[17vw] font-bold text-center leading-none 
+    @apply  text-main-red xl:mt-[-30px] lg:mt-[-20px] md:mt-[-10px] mt-0 text-[17vw] font-bold text-center leading-none 
   }
 
   /* About section */
@@ -71,7 +75,7 @@ body{
     @apply w-15 h-auto
   }
   .svg-container{
-    @apply absolute top-700 left-0 flex justify-center items-center w-full h-[3572px]
+    @apply absolute top-650 left-0 flex justify-center items-center w-full h-[3572px]
   }
 
 /* Contact section */
@@ -94,6 +98,23 @@ body{
 
 .field-btn_arrow {
   @apply w-2.5 h-2.5 object-contain invert brightness-0;
+}
+
+/* Education section */
+.education-img {
+  @apply w-[30vw]
+}
+.education-title {
+  @apply text-[#FFFCEE] text-6xl font-bold
+}
+.education-state{
+  @apply text-[#FFFCEE] text-4xl font-normal
+}
+.education-degree{
+  @apply text-[#FFFCEE] text-xl font-light
+}
+.education-date{
+  @apply text-[#FFFCEE] text-sm font-thin
 }
 
 }

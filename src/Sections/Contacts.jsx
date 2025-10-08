@@ -44,7 +44,7 @@ const Contact = () => {
 
   return (
     <section
-      className=" bg-gradient-to-b from-[#0f0f0f] via-[#5a0a10] to-[#69141F]"
+      className=" bg-gradient-to-b from-[#0f0f0f] via-[#5a0a10] to-main-red"
       id="contact"
     >
       <div className="flex items-center flex-col justify-center min-h-screen">
@@ -89,7 +89,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className="field-input"
-                placeholder="Hi, I wanna give you a best offer..."
+                placeholder="Hi, I wanna give you the best offer..."
                 rows={5}
               />
             </label>

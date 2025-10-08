@@ -12,69 +12,69 @@ const Button = () => {
   const pathRef = useRef(null);
   const [activated, setActivated] = useState(false);
 
-  useGSAP(() => {
-    gsap.set(circleRef.current, { scale: 0.3 });
-    gsap.set(carRef.current, { opacity: 0 });
-    gsap.set(pathRef.current, {
-      strokeDasharray: pathRef.current.getTotalLength(),
-      opacity: 0,
-    });
-    gsap.to(circleRef.current, {
-      scale: 0.4,
-      repeat: -1,
-      yoyo: true,
-      ease: "bounce.Out",
-      duration: 0.4,
-    });
-    // gsap.set(carRef.current, { opacity: 0 });
-  });
+  // useGSAP(() => {
+  //   gsap.set(circleRef.current, { scale: 0.3 });
+  //   gsap.set(carRef.current, { opacity: 0 });
+  //   gsap.set(pathRef.current, {
+  //     strokeDasharray: pathRef.current.getTotalLength(),
+  //     opacity: 0,
+  //   });
+  //   gsap.to(circleRef.current, {
+  //     scale: 0.4,
+  //     repeat: -1,
+  //     yoyo: true,
+  //     ease: "bounce.Out",
+  //     duration: 0.4,
+  //   });
+  //   // gsap.set(carRef.current, { opacity: 0 });
+  // });
 
-  const handleClick = () => {
-    if (activated) return;
-    setActivated(true);
+  // const handleClick = () => {
+  //   if (activated) return;
+  //   setActivated(true);
 
-    const pathLength = pathRef.current.getTotalLength();
-    // console.log("Path length:", pathLength);
+  //   const pathLength = pathRef.current.getTotalLength();
+  //   // console.log("Path length:", pathLength);
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".button-section",
-        start: "top 20%",
-        scrub: 1,
-        end: "+100%",
-      },
-    });
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".button-section",
+  //       start: "top 20%",
+  //       scrub: 1,
+  //       end: "+100%",
+  //     },
+  //   });
 
-    gsap.to(circleRef.current, {
-      scale: 0,
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.inOut",
-    });
-    tl.to(".button-text", { opacity: 0, duration: 0.5 })
-      .to(
-        carRef.current,
-        {
-          opacity: 1,
-        },
-        "<"
-      )
-      .to(carRef.current, {
-        duration: 800,
-        motionPath: {
-          path: pathRef.current,
-          align: pathRef.current,
-          alignOrigin: [0.5, 0.5],
-        },
-      })
-      .to(pathRef.current, { opacity: 1 }, "<")
-      .fromTo(
-        pathRef.current,
-        { strokeDashoffset: pathLength },
-        { strokeDashoffset: 0, duration: 800 },
-        "<"
-      );
-  };
+  //   gsap.to(circleRef.current, {
+  //     scale: 0,
+  //     opacity: 0,
+  //     duration: 0.5,
+  //     ease: "power2.inOut",
+  //   });
+  //   tl.to(".button-text", { opacity: 0, duration: 0.5 })
+  //     .to(
+  //       carRef.current,
+  //       {
+  //         opacity: 1,
+  //       },
+  //       "<"
+  //     )
+  //     .to(carRef.current, {
+  //       duration: 800,
+  //       motionPath: {
+  //         path: pathRef.current,
+  //         align: pathRef.current,
+  //         alignOrigin: [0.5, 0.5],
+  //       },
+  //     })
+  //     .to(pathRef.current, { opacity: 1 }, "<")
+  //     .fromTo(
+  //       pathRef.current,
+  //       { strokeDashoffset: pathLength },
+  //       { strokeDashoffset: 0, duration: 800 },
+  //       "<"
+  //     );
+  // };
 
   return (
     <section>
@@ -84,7 +84,7 @@ const Button = () => {
           <div
             ref={circleRef}
             className="button-circle z-10"
-            onClick={handleClick}
+            // onClick={handleClick}
           ></div>
           <img
             ref={carRef}
@@ -93,22 +93,22 @@ const Button = () => {
             className="button-car absolute z-2"
           />
         </div>
-        <div className="svg-container">
+        <div className="svg-container z-50">
           <svg
-            className="h-full"
-            width="1120"
-            height="3572"
-            viewBox="0 0 1120 3572"
+            width="1055"
+            height="3571"
+            viewBox="0 0 1055 3571"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              ref={pathRef}
-              d="M558 0C558 0 560 227 572.5 334.5C597.892 552.869 817 382 957.581 433C1098.16 484 1111.5 574 1118 676C1124.5 778 1074.62 950.66 957.581 980.5C810.5 1018 753.183 1005.5 601.581 1005.5C397.581 1005.5 279.546 982.283 145.581 1106C57.8576 1187.01 -8.33966 1257.05 2.08096 1376C15.8716 1533.42 175.403 1560 317.081 1630C462.299 1701.75 721.406 1564.03 720.581 1726C720.135 1813.55 672.192 1864.24 601.581 1916C525.671 1971.65 392.182 1878.93 366.581 1969.5C348.1 2034.88 414.484 2064.58 436.081 2129C454.461 2183.83 461.525 2215.74 472.581 2272.5C501.763 2422.32 575.906 2537.46 489.081 2663C396.68 2796.6 170.382 2633.46 88.081 2773.5C58.9314 2823.1 51.1453 2857.61 47.081 2915C38.3268 3038.61 75.1244 3127.88 170.081 3207.5C267.657 3289.31 412.765 3173.07 489.081 3275C558.478 3367.69 489.081 3571.5 489.081 3571.5"
-              stroke="white"
+              d="M525 0.5C525 0.5 517.988 114.726 567 140.5C625 171 780 129.5 901 196C979.396 239.086 1055.62 326.569 1053.5 416C1049 605.5 987.253 789.149 845.5 817.5C670.5 852.5 619.254 820.538 450.578 842.5C312.884 860.428 137.078 787 33.0779 872C-9.96222 907.177 -9.42214 944.5 33.0778 964.5C78.4737 985.863 213.693 968.613 259.078 990C350.149 1032.92 450.419 993.145 503 1079C567 1183.5 481 1470.12 484 1692C486.121 1848.85 508.747 2008.14 510 2165C512.155 2434.71 589.5 2710 478.5 2819C418.523 2877.9 201.253 2870.85 147.078 2962.5C94.6791 3051.14 93.7443 3209.13 189.5 3247C256.5 3273.5 277 3312 361.5 3353.5C419.617 3382.04 526.5 3362.58 526.5 3414.5C526.5 3468 526.5 3571 526.5 3571"
+              stroke="#FFFCEE"
               stroke-width="2"
             />
           </svg>
+
+          {/* ref={pathRef} */}
         </div>
         <h4 className="button-text">click here</h4>
       </div>
