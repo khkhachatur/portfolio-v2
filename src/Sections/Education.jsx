@@ -9,7 +9,7 @@ const Education = () => {
         start: "top 25%",
         scrub: 1,
         pin: true,
-        end: "+30%",
+        end: "+50%",
       },
     });
 

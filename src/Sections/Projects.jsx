@@ -73,8 +73,6 @@ const Projects = () => {
       className="min-h-screen px-6 overflow-hidden text-white bg-gradient-to-b from-main-red via-[#2a0a10] to-[#0f0f0f] "
       id="projects"
     >
-      <div></div>
-
       <div className="relative max-w-7xl mx-auto">
         <div className="projects-title text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-3">
@@ -172,7 +170,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm">
+      <div className="flex justify-center my-5 text-gray-400 text-sm">
         Hover to preview | Scroll to explore
       </div>
     </section>

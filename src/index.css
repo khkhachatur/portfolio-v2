@@ -10,10 +10,22 @@
 body{
   background:main-red
 }
-
+.svg-container,
+.svg-container svg {
+  pointer-events: none;
+}
 
 @theme {
   --color-main-red: #69141F
+}
+
+#work-section,
+#projects-section,
+#education-section,
+#finish-section,
+#contacts-section {
+  opacity: 0;
+  /* display: none; */
 }
 
 @layer {
@@ -76,7 +88,7 @@ body{
     @apply w-15 h-auto
   }
   .svg-container{
-    @apply absolute top-650 left-0 flex justify-center items-center w-full h-[3572px]
+    @apply absolute top-630 left-0 flex justify-center items-center w-full h-[3572px]
   }
 
 /* Contact section */
