@@ -119,6 +119,38 @@ export const myProjects = [
     ],
   },
   {
+    title: "The Beach - QR Menu",
+    desc: "A mobile-friendly digital menu for a beachfront restaurant, enabling visitors to scan QR codes, explore items, and place orders quickly and efficiently.",
+    subdesc:
+      "A mobile digital menu for a beachfront restaurant, letting visitors to scan QR code, explore items, and place orders quickly and efficiently.",
+
+    video: "/videos/project/qr-menu.mp4",
+    logo: "/assets/the-beach.svg",
+    logoStyle: {
+      backgroundColor: "#E5D6C5",
+      border: "0.2px solid #3C6A5A",
+      boxShadow: "0px 0px 60px 0px #929274",
+    },
+
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 2,
+        name: "Material-UI",
+        path: "assets/material-ui.svg",
+      },
+      {
+        id: 3,
+        name: "Redux",
+        path: "assets/redux.svg",
+      },
+    ],
+  },
+  {
     title: "Arte Web — Fundraising Platform",
     desc: "A donation-driven web platform built to support Armenia, allowing people across Europe to contribute securely via QR codes and track campaign updates.",
     subdesc:

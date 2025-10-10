@@ -3,7 +3,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathPlugin);
 
 const Button = () => {
@@ -20,9 +22,9 @@ const Button = () => {
       opacity: 0,
     });
 
-    gsap.set(carRef.current, { opacity: 0 });
-    // gsap.set(".svg-container", { height: "0px" });
-    // gsap.set("svg", { height: "0px" });
+    gsap.set(carRef.current, { opacity: 0, scale: 0 });
+    gsap.set(".svg-container", { height: "0px" });
+    gsap.set("svg", { height: "0px" });
 
     gsap.to(circleRef.current, {
       scale: 0.4,
@@ -55,25 +57,30 @@ const Button = () => {
       duration: 0.5,
       ease: "power2.inOut",
     });
+    gsap.to(
+      carRef.current,
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power1.inOut",
+      },
+      "<"
+    );
     tl.to(".button-text", { opacity: 0, duration: 0.5 })
-      .to(
-        carRef.current,
-        {
-          opacity: 1,
-        },
-        "<"
-      )
+
       .to(carRef.current, {
         duration: 700,
         motionPath: {
           path: pathRef.current,
           align: pathRef.current,
           alignOrigin: [0.5, 0.5],
+          autoRotate: true,
         },
       })
       .to(pathRef.current, { opacity: 1 }, "<")
-      // .to(".svg-container", { height: "3572px" })
-      // .to("svg", { height: "3572px" })
+      .to(".svg-container", { height: "auto" }, "<")
+      .to("svg", { height: "auto" }, "<")
       .fromTo(
         pathRef.current,
         { strokeDashoffset: pathLength },
@@ -83,21 +90,26 @@ const Button = () => {
 
     gsap.utils
       .toArray([
-        { id: "#work-section", start: 0.2 },
-        { id: "#projects-section", start: 0.4 },
-        { id: "#education-section", start: 0.6 },
-        { id: "#finish-section", start: 0.8 },
+        { id: "#work-section", start: 0.16 },
+        { id: "#projects-section", start: 0.32 },
+        { id: "#education-section", start: 0.48 },
+        { id: "#finish-section", start: 0.64 },
+        { id: "#responsive-section", start: 0.8 },
         { id: "#contacts-section", start: 1 },
       ])
       .forEach(({ id }) => {
         gsap.to(id, {
           autoAlpha: 1,
+          display: "block",
           duration: 0,
           scrollTrigger: {
             trigger: id,
             start: "top 80%",
             end: "top 50%",
             scrub: 1,
+            onEnter: () => {
+              ScrollTrigger.refresh();
+            },
           },
         });
       });
@@ -115,24 +127,24 @@ const Button = () => {
           ></div>
           <img
             ref={carRef}
-            src="/icons/f1car.png"
+            src="/icons/f1car1.png"
             alt="F1 car"
-            className="button-car absolute z-2"
+            className="button-car absolute z-32"
           />
         </div>
         <div className="svg-container z-30">
           <svg
             width="1055"
-            height="3571"
-            viewBox="0 0 1055 3571"
+            height="3578"
+            viewBox="0 0 1055 3578"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              ref={pathRef}
-              d="M525 0.5C525 0.5 517.988 114.726 567 140.5C625 171 780 129.5 901 196C979.396 239.086 1055.62 326.569 1053.5 416C1049 605.5 987.253 789.149 845.5 817.5C670.5 852.5 619.254 820.538 450.578 842.5C312.884 860.428 137.078 787 33.0779 872C-9.96222 907.177 -9.42214 944.5 33.0778 964.5C78.4737 985.863 213.693 968.613 259.078 990C350.149 1032.92 450.419 993.145 503 1079C567 1183.5 481 1470.12 484 1692C486.121 1848.85 508.747 2008.14 510 2165C512.155 2434.71 589.5 2710 478.5 2819C418.523 2877.9 201.253 2870.85 147.078 2962.5C94.6791 3051.14 93.7443 3209.13 189.5 3247C256.5 3273.5 277 3312 361.5 3353.5C419.617 3382.04 526.5 3362.58 526.5 3414.5C526.5 3468 526.5 3571 526.5 3571"
+              d="M525 1.49988C525 1.49988 591 1.4999 676.5 1.49998C749.5 1.50004 694.5 155 901 197C988.661 214.829 1055.62 327.569 1053.5 417C1049 606.5 987.253 790.149 845.5 818.5C670.5 853.5 619.254 821.538 450.578 843.5C312.884 861.428 137.078 788 33.0779 873C-9.96222 908.177 -9.42214 945.5 33.0778 965.5C78.4737 986.863 213.693 969.613 259.078 991C350.149 1033.92 549.367 951.107 583 1046C625 1164.5 475 1128.62 478 1350.5C480.121 1507.35 620.49 1488.18 583 1640.5C545.51 1792.82 375.5 1864 548 2086C654.453 2223 482.747 2252.63 473 2421C464.403 2569.51 650.5 2675.5 548 2733C385 2820.5 257.5 2879.5 160 2977.5C107.634 3030.13 93.7443 3210.13 189.5 3248C256.5 3274.5 233 3341.5 317.5 3383C375.617 3411.54 526.5 3404.58 526.5 3456.5C526.5 3510 526.5 3577.5 526.5 3577.5"
               stroke="#FFFCEE"
               stroke-width="2"
+              ref={pathRef}
             />
           </svg>
         </div>

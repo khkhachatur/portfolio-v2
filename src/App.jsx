@@ -32,14 +32,14 @@ function App() {
       <section id="finish-section">
         <Finish />
       </section>
-      <section id="responsive-section">
+      {/* <section id="responsive-section">
         <Responsive />
-      </section>
+      </section> */}
       <section id="contacts-section">
         <Contacts />
       </section>
 
-      <section className="footer-section">
+      <section id="footer-section">
         <Footer />
       </section>
     </main>

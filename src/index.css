@@ -23,9 +23,12 @@ body{
 #projects-section,
 #education-section,
 #finish-section,
-#contacts-section {
+#responsive-section,
+#contacts-section
+/* #footer-section */
+ {
   opacity: 0;
-  /* display: none; */
+  display: none;
 }
 
 @layer {
@@ -88,7 +91,7 @@ body{
     @apply w-15 h-auto
   }
   .svg-container{
-    @apply absolute top-630 left-0 flex justify-center items-center w-full h-[3572px]
+    @apply absolute top-630 left-0 flex justify-center items-center w-full h-[3520px]
   }
 
 /* Contact section */
