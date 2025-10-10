@@ -10,10 +10,7 @@
 body{
   background:main-red
 }
-.svg-container,
-.svg-container svg {
-  pointer-events: none;
-}
+
 
 @theme {
   --color-main-red: #69141F
@@ -79,7 +76,7 @@ body{
   /* Button Section */
 
   .button-section{
-    @apply flex flex-col justify-center items-center my-10
+    @apply relative flex flex-col justify-center items-center
   }
   .button-text{
     @apply text-[#FFFCEE] md:text-xl text-sm font-light
@@ -91,8 +88,9 @@ body{
     @apply w-15 h-auto
   }
   .svg-container{
-    @apply absolute top-630 left-0 flex justify-center items-center w-full h-[3520px]
+    @apply absolute pointer-events-none inset-0 top-20  flex justify-center items-center w-full h-full
   }
+
 
 /* Contact section */
 

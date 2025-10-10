@@ -1,7 +1,7 @@
 import gsap from "gsap";
 
 import { useGSAP } from "@gsap/react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -34,6 +34,14 @@ const Button = () => {
       duration: 0.4,
     });
   });
+
+  useEffect(() => {
+    const handleResize = () => {
+      gsap.delayedCall(0.3, () => ScrollTrigger.refresh());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleClick = () => {
     if (activated) return;
@@ -134,15 +142,15 @@ const Button = () => {
         </div>
         <div className="svg-container z-30">
           <svg
-            width="1055"
-            height="3578"
-            viewBox="0 0 1055 3578"
-            fill="none"
+            viewBox="0 0 1055 3631"
+            preserveAspectRatio="none"
+            className="absolute top-0 left-0 w-full h-full px-50"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M525 1.49988C525 1.49988 591 1.4999 676.5 1.49998C749.5 1.50004 694.5 155 901 197C988.661 214.829 1055.62 327.569 1053.5 417C1049 606.5 987.253 790.149 845.5 818.5C670.5 853.5 619.254 821.538 450.578 843.5C312.884 861.428 137.078 788 33.0779 873C-9.96222 908.177 -9.42214 945.5 33.0778 965.5C78.4737 986.863 213.693 969.613 259.078 991C350.149 1033.92 549.367 951.107 583 1046C625 1164.5 475 1128.62 478 1350.5C480.121 1507.35 620.49 1488.18 583 1640.5C545.51 1792.82 375.5 1864 548 2086C654.453 2223 482.747 2252.63 473 2421C464.403 2569.51 650.5 2675.5 548 2733C385 2820.5 257.5 2879.5 160 2977.5C107.634 3030.13 93.7443 3210.13 189.5 3248C256.5 3274.5 233 3341.5 317.5 3383C375.617 3411.54 526.5 3404.58 526.5 3456.5C526.5 3510 526.5 3577.5 526.5 3577.5"
               stroke="#FFFCEE"
+              fill="none"
               stroke-width="2"
               ref={pathRef}
             />

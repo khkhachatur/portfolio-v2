@@ -24,31 +24,25 @@ const Work = () => {
     });
 
     tl.fromTo(
-      "#work-title",
-      { opacity: 0, y: 100 },
-      { opacity: 1, duration: 1, y: 0 }
-    )
-      .fromTo(
-        currentCard,
-        { opacity: 1, y: 0 },
-        {
-          opacity: 0,
-          y: -30,
-          duration: 0.5,
-          ease: "power2.inOut",
-        }
-      )
-      .fromTo(
-        nextCard,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "-=0.3"
-      );
+      currentCard,
+      { opacity: 1, y: 0 },
+      {
+        opacity: 0,
+        y: -30,
+        duration: 0.5,
+        ease: "power2.inOut",
+      }
+    ).fromTo(
+      nextCard,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+      },
+      "-=0.3"
+    );
   };
 
   const goToNext = () => {
@@ -91,9 +85,9 @@ const Work = () => {
   }, [currentIndex, isHovered]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center py-20 px-4">
+    <section className="min-h-screen flex items-center justify-center py-10 px-4">
       <div className="max-w-4xl w-full">
-        <div className="text-center mb-16">
+        <div className="text-center ">
           <h2 className="text-5xl font-bold text-white mb-4" id="work-title">
             Work Experience
           </h2>
