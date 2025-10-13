@@ -21,8 +21,15 @@ const Finish = () => {
   });
 
   return (
-    <section className="flex justify-center bg-[#0f0f0f] py-20 " id="finish">
-      <img className="finish-line" src="icons/finish-line.png" alt="" />
+    <section
+      className="flex justify-center items-center bg-[#0f0f0f] py-32 z-0"
+      id="finish"
+    >
+      <img
+        className="finish-line w-[40vw] max-w-[400px]"
+        src="icons/finish-line.png"
+        alt=""
+      />
     </section>
   );
 };

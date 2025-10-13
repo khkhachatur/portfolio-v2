@@ -70,27 +70,28 @@ const Projects = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen px-6 overflow-hidden text-white bg-gradient-to-b from-main-red via-[#2a0a10] to-[#0f0f0f] "
       id="projects"
+      className="project-container flex flex-col items-center justify-center py-24"
     >
-      <div className="relative max-w-7xl mx-auto">
-        <div className="projects-title text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-3">
+      <div className="w-full max-w-[1400px] mx-auto flex flex-col items-center">
+        {/* Title */}
+        <div className="projects-title text-center mb-20 px-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">
             Featured Projects
           </h2>
-          <p className="text-gray-300 text-lg">
+          <p className="text-gray-300 text-base md:text-lg">
             A selection of my most creative and technical works
           </p>
         </div>
 
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-40 gap-y-10 px-30"
+          className=" grid grid-cols-1 gap-y-14  px-4 sm:px-8 md:px-16 lg:px-24"
         >
           {myProjects.map((project, index) => (
             <div
               key={index}
-              className="project-card relative group overflow-hidden rounded-2xl aspect-[4/5] bg-white/5 backdrop-blur-sm border border-white/10"
+              className="project-card group mx-auto"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
@@ -112,10 +113,8 @@ const Projects = () => {
                 )}
               </div>
 
-              {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent transition-opacity duration-700" />
 
-              {/* Content */}
               <div className="absolute bottom-0 p-6 flex flex-col justify-end z-10">
                 <h3
                   className={`text-2xl font-bold mb-2 transition-colors duration-300 ${
@@ -126,7 +125,6 @@ const Projects = () => {
                 </h3>
                 <p className="text-gray-300 text-sm mb-4 ">{project.desc}</p>
 
-                {/* Tech */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags?.map((tag) => (
                     <span
@@ -138,7 +136,6 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Links */}
                 <div className="flex gap-3">
                   {project.href && (
                     <a
@@ -151,7 +148,7 @@ const Projects = () => {
                     </a>
                   )}
                   <a
-                    href="#"
+                    href={project.gitLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs transition-all"
@@ -161,7 +158,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Index Badge */}
               <div className="absolute top-4 right-4 text-xs bg-main-red/80 px-3 py-1 rounded-full font-medium">
                 0{index + 1}
               </div>
@@ -170,8 +166,18 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="flex justify-center my-5 text-gray-400 text-sm">
-        Hover to preview | Scroll to explore
+      <div className="text-center mt-20 flex flex-col items-center gap-4">
+        <p className="text-gray-400 text-sm md:text-base tracking-wide">
+          Hover to preview | Scroll to explore
+        </p>
+        <a
+          href="https://github.com/khkhachatur"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-main-red bg-white px-4 py-2 text-sm md:text-base rounded-lg opacity-70 hover:opacity-100 transition-all duration-300 font-medium"
+        >
+          See more
+        </a>
       </div>
     </section>
   );

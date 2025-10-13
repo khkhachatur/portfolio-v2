@@ -70,7 +70,7 @@ body{
   /* About section */
 
   .about-desc{
-    @apply text-[#FFFCEE]  w-[60vw] text-center md:text-2xl sm:text-lg text-sm font-light
+    @apply text-[#FFFCEE] text-center font-light leading-relaxed w-[60vw] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl md:w-[70vw] lg:w-[60vw];
   }
 
   /* Button Section */
@@ -82,54 +82,71 @@ body{
     @apply text-[#FFFCEE] md:text-xl text-sm font-light
   }
   .button-circle{
-    @apply w-20 h-20 bg-white rounded-full cursor-pointer
+    @apply w-20 h-20 bg-white rounded-full cursor-pointer z-10
   }
   .button-car{
-    @apply w-15 h-auto
+    @apply w-[3.75rem] h-auto z-20;
   }
   .svg-container{
-    @apply absolute pointer-events-none inset-0 top-20  flex justify-center items-center w-full h-full
+    @apply absolute pointer-events-none inset-0 top-20 flex justify-center items-center w-full h-full z-0;
   }
 
+/* Project section */
 
-/* Contact section */
-
-.contact-container {
-  @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
-}
-
-.field-label {
-  @apply text-lg text-[#FFFCEE];
+.project-container {
+  @apply min-h-screen overflow-hidden text-white bg-gradient-to-b from-main-red via-[#2a0a10] to-[#0f0f0f];
 }
 
-.field-input {
-  @apply w-full bg-[rgba(0,0,0,0.4)] px-5 py-2 min-h-14 rounded-lg placeholder:text-[rgba(250,250,250,0.4)] text-lg text-white drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]  shadow-2xl focus:outline-none;
+.project-card {
+  @apply relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 w-[90vw] sm:w-[85vw] md:w-[80vw] lg:w-[70vw] aspect-[16/9] transition-all duration-500;
 }
-
-.field-btn {
-  @apply bg-[rgba(0,0,0,0.4)] hover:bg-black duration-500 px-5 py-2 min-h-12 rounded-lg drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] shadow-2xl flex justify-center items-center text-lg text-white gap-3;
-}
-
-.field-btn_arrow {
-  @apply w-2.5 h-2.5 object-contain invert brightness-0;
-}
-
-/* Education section */
-.education-img {
-  @apply w-[30vw]
-}
-.education-title {
-  @apply text-[#FFFCEE] text-6xl font-bold
-}
-.education-state{
-  @apply text-[#FFFCEE] text-4xl font-normal
-}
-.education-degree{
-  @apply text-[#FFFCEE] text-xl font-light
-}
-.education-date{
-  @apply text-[#FFFCEE] text-sm font-thin
-}
+  
+  /* Education section */
+  .education-section {
+    @apply min-h-screen flex items-center justify-center overflow-hidden;
+  }
+  
+  .education-img {
+    @apply w-[40vw] max-w-[320px] md:max-w-[400px] lg:max-w-[500px];
+  }
+  
+  .education-title {
+    @apply text-[#FFFCEE] text-5xl md:text-6xl font-bold mb-6;
+  }
+  
+  .education-state {
+    @apply text-[#FFFCEE] text-2xl md:text-4xl font-semibold;
+  }
+  
+  .education-degree {
+    @apply text-[#FFFCEE] text-lg md:text-xl font-light;
+  }
+  
+  .education-date {
+    @apply text-[#FFFCEE]/80 text-sm md:text-base font-thin;
+  }
+  
+  /* Contact section */
+  
+  .contact-container {
+    @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
+  }
+  
+  .field-label {
+    @apply text-lg text-[#FFFCEE];
+  }
+  
+  .field-input {
+    @apply w-full bg-[rgba(0,0,0,0.4)] px-5 py-2 min-h-14 rounded-lg placeholder:text-[rgba(250,250,250,0.4)] text-lg text-white drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]  shadow-2xl focus:outline-none;
+  }
+  
+  .field-btn {
+    @apply bg-[rgba(0,0,0,0.4)] hover:bg-black duration-500 px-5 py-2 min-h-12 rounded-lg drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+  }
+  
+  .field-btn_arrow {
+    @apply w-2.5 h-2.5 object-contain invert brightness-0;
+  }
 
 }
 

@@ -22,7 +22,7 @@ const About = () => {
     tl.fromTo(
       ".about-desc",
       { opacity: 0 },
-      { durtion: 2, opacity: 1, yoyo: true, ease: "power1.inOut" }
+      { duration: 2, opacity: 1, yoyo: true, ease: "power1.inOut" }
     )
       .fromTo(
         splitDesc.chars,
@@ -61,9 +61,12 @@ const About = () => {
   });
 
   return (
-    <section>
-      <div className="flex justify-center my-20 c-space" id="about">
-        <p className="about-desc ">
+    <section
+      id="about"
+      className="flex justify-center items-center py-[120px] relative"
+    >
+      <div className="flex justify-center c-space">
+        <p className="about-desc">
           Hi, I’m Khachatur, a results-driven{" "}
           <span id="about-span">frontend and GIS specialist </span>
           developer with experience in geospatial data, web applications, and

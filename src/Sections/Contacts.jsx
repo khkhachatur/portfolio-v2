@@ -50,7 +50,7 @@ const Contact = () => {
       <div className="flex items-center flex-col justify-center min-h-screen">
         <div className="contact-container">
           <h3 className="head-text text-[#FFFCEE] text-2xl mt-10">
-            Let s talk
+            Contact me
           </h3>
           <form
             ref={formRef}
