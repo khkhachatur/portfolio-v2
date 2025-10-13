@@ -93,7 +93,7 @@ const Contact = () => {
                 rows={5}
               />
             </label>
-            <button className="field-btn" type="submit" disable={loading}>
+            <button className="field-btn" type="submit" disabled={loading}>
               {loading ? "Sending" : "Send message"}
               <img
                 src="assets/arrow-up.png"
