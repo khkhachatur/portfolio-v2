@@ -19,7 +19,7 @@ function App() {
     <main>
       <Hero />
       <About />
-      <Button />
+      {/* <Button /> */}
       <section id="work-section">
         <Work />
       </section>
@@ -29,9 +29,9 @@ function App() {
       <section id="education-section">
         <Education />
       </section>
-      <section id="finish-section">
+      {/* <section id="finish-section">
         <Finish />
-      </section>
+      </section> */}
       {/* <section id="responsive-section">
         <Responsive />
       </section> */}

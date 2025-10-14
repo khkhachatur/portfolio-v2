@@ -63,7 +63,7 @@ const Button = () => {
     gsap.to(circleRef.current, {
       scale: 0,
       opacity: 0,
-      duration: 0.5,
+      duration: 1,
       ease: "power2.inOut",
     });
     gsap.to(
@@ -76,7 +76,7 @@ const Button = () => {
       },
       "<"
     );
-    tl.to(".button-text", { opacity: 0, duration: 0.5 })
+    tl.to(".button-text", { opacity: 0, duration: 2 })
 
       .to(carRef.current, {
         duration: 700,

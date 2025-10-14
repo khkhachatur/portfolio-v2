@@ -19,17 +19,17 @@ html, body {
   --color-main-red: #69141F
 }
 
-#work-section,
+/* #work-section,
 #projects-section,
 #education-section,
 #finish-section,
 #responsive-section,
 #contacts-section
-/* #footer-section */
+#footer-section
  {
   opacity: 0;
   display: none;
-}
+} */
 
 @layer {
   .c-space {

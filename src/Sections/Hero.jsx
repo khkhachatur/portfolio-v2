@@ -63,7 +63,7 @@ const Hero = () => {
           color: "white",
           scale: 0.45,
         },
-        { y: 0, scale: 1, direction: 3, color: "#69141F" },
+        { y: 0, scale: 1, direction: 5, color: "#69141F" },
         "<"
       )
       .to("body", { background: "#69141F", duration: 2 }, "<")
