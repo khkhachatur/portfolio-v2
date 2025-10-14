@@ -1,17 +1,16 @@
 {
   "homepage": "https://khkhachatur.github.io/portfolio-v2/",
-  "name": "partfolio-v2",
-
+  "name": "portfolio-v2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "lint": "eslint .",
     "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
