@@ -11,6 +11,9 @@ body{
   background:main-red
 }
 
+html, body {
+  overflow-x: hidden;
+}
 
 @theme {
   --color-main-red: #69141F
@@ -85,11 +88,12 @@ body{
     @apply w-20 h-20 bg-white rounded-full cursor-pointer z-10
   }
   .button-car{
-    @apply w-[3.75rem] h-auto z-20;
+    @apply w-[3.75rem] h-auto z-0;
   }
   .svg-container{
     @apply absolute pointer-events-none inset-0 top-20 flex justify-center items-center w-full h-full z-0;
   }
+  
 
 /* Project section */
 
@@ -111,7 +115,7 @@ body{
   }
   
   .education-title {
-    @apply text-[#FFFCEE] text-5xl md:text-6xl font-bold mb-6;
+    @apply text-[#FFFCEE] 
   }
   
   .education-state {

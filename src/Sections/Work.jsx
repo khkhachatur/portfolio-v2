@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { workExperiences } from "../Constants";
+import Title from "../Components/Title";
 
 const Work = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -88,12 +89,7 @@ const Work = () => {
     <section className="min-h-screen flex items-center justify-center py-16 px-4 sm:py-12 sm:px-6 md:px-10">
       <div className="max-w-4xl w-full">
         <div className="text-center mb-16 sm:mb-12">
-          <h2
-            className="text-4xl sm:text-3xl md:text-5xl font-bold text-white mb-4"
-            id="work-title"
-          >
-            Work Experience
-          </h2>
+          <Title secTitle="Work Experience" />
         </div>
 
         <div

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { ExternalLink } from "lucide-react";
 
 const Contact = () => {
   const formRef = useRef();
@@ -95,11 +96,7 @@ const Contact = () => {
             </label>
             <button className="field-btn" type="submit" disabled={loading}>
               {loading ? "Sending" : "Send message"}
-              <img
-                src="assets/arrow-up.png"
-                alt="arrow"
-                className="field-btn_arrow"
-              />
+              <ExternalLink className="w-5" />
             </button>
           </form>
         </div>

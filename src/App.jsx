@@ -10,7 +10,7 @@ import Finish from "./Sections/Finish.jsx";
 import Projects from "./Sections/Projects";
 import Contacts from "./Sections/Contacts";
 import Education from "./Sections/Education";
-import Responsive from "./Sections/Responsive.jsx";
+// import Responsive from "./Sections/Responsive.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 

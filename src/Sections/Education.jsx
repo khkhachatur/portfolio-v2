@@ -40,7 +40,9 @@ const Education = () => {
   return (
     <section className="education-section bg-[#0f0f0f]">
       <div className="flex flex-col justify-center items-center py-32 text-center gap-4">
-        <h2 className="education-title">Education</h2>
+        <h2 className="education-title text-4xl sm:text-3xl md:text-5xl font-bold text-white mb-4 ">
+          Education
+        </h2>
         <img
           src="/images/msu.png"
           alt="MSU"

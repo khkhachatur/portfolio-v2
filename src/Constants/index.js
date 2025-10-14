@@ -25,110 +25,110 @@ export const myProjects = [
       },
     ],
   },
-  // {
-  //   title: "ART FACTORY - Web",
-  //   desc: "A modern online platform for an art collective, designed to showcase exhibitions, creative projects, and artist portfolios through an immersive, minimal, and interactive experience.",
-  //   video: "/videos/project/art-factory.mp4",
-  //   gitLink: "https://github.com/khkhachatur/art_factory",
+  {
+    title: "ART FACTORY - Web",
+    desc: "A modern online platform for an art collective, designed to showcase exhibitions, creative projects, and artist portfolios through an immersive, minimal, and interactive experience.",
+    video: "/videos/project/art-factory.mp4",
+    gitLink: "https://github.com/khkhachatur/art_factory",
 
-  //   tags: [
-  //     {
-  //       id: 1,
-  //       name: "React.js",
-  //       path: "/assets/react.svg",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Material-UI",
-  //       path: "assets/material-ui.svg",
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Redux",
-  //       path: "assets/redux.svg",
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "TypeScript",
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: "Three JS 3D Portfolio",
-  //   desc: "A fully interactive 3D portfolio built with Three.js, designed to showcase creativity through motion and immersion. This project combines real-time 3D rendering, smooth animations, and modern web technologies to create an engaging, story-driven experience.",
-  //   gitLink: "https://github.com/khkhachatur/three-js-portfolio",
-  //   video: "/videos/project/three-js.mp4",
-  //   tags: [
-  //     {
-  //       id: 1,
-  //       name: "React.js",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Three.js",
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "TailwindCSS",
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "GSAP",
-  //     },
-  //     {
-  //       id: 5,
-  //       name: "TypeScript",
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: "The Beach - QR Menu",
-  //   desc: "A mobile-friendly digital menu for a beachfront restaurant, enabling visitors to scan QR codes, explore items, and place orders quickly and efficiently.",
-  //   gitLink: "https://github.com/khkhachatur/Menu",
-  //   video: "/videos/project/qr-menu.mp4",
-  //   logo: "/assets/the-beach.svg",
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 2,
+        name: "Material-UI",
+        path: "assets/material-ui.svg",
+      },
+      {
+        id: 3,
+        name: "Redux",
+        path: "assets/redux.svg",
+      },
+      {
+        id: 4,
+        name: "TypeScript",
+      },
+    ],
+  },
+  {
+    title: "Three JS 3D Portfolio",
+    desc: "A fully interactive 3D portfolio built with Three.js, designed to showcase creativity through motion and immersion. This project combines real-time 3D rendering, smooth animations, and modern web technologies to create an engaging, story-driven experience.",
+    gitLink: "https://github.com/khkhachatur/three-js-portfolio",
+    video: "/videos/project/three-js.mp4",
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+      },
+      {
+        id: 2,
+        name: "Three.js",
+      },
+      {
+        id: 3,
+        name: "TailwindCSS",
+      },
+      {
+        id: 4,
+        name: "GSAP",
+      },
+      {
+        id: 5,
+        name: "TypeScript",
+      },
+    ],
+  },
+  {
+    title: "The Beach - QR Menu",
+    desc: "A mobile-friendly digital menu for a beachfront restaurant, enabling visitors to scan QR codes, explore items, and place orders quickly and efficiently.",
+    gitLink: "https://github.com/khkhachatur/Menu",
+    video: "/videos/project/qr-menu.mp4",
+    logo: "/assets/the-beach.svg",
 
-  //   tags: [
-  //     {
-  //       id: 1,
-  //       name: "React.js",
-  //       path: "/assets/react.svg",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Material-UI",
-  //       path: "assets/material-ui.svg",
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Redux",
-  //       path: "assets/redux.svg",
-  //     },
-  //   ],
-  // },
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 2,
+        name: "Material-UI",
+        path: "assets/material-ui.svg",
+      },
+      {
+        id: 3,
+        name: "Redux",
+        path: "assets/redux.svg",
+      },
+    ],
+  },
 
-  // {
-  //   title: "Arte Web — Fundraising Platform",
-  //   desc: "A donation-driven web platform built to support Armenia, allowing people across Europe to contribute securely via QR codes and track campaign updates.",
-  //   subdesc:
-  //     "It wasn’t about complex web development — it was about giving real help during a difficult time for people.",
-  //   href: "https://khkhachatur.github.io/ARTE-final/#",
-  //   video: "/videos/project/arma.mp4",
-  //   logo: "/assets/arte.svg",
+  {
+    title: "Arte Web — Fundraising Platform",
+    desc: "A donation-driven web platform built to support Armenia, allowing people across Europe to contribute securely via QR codes and track campaign updates.",
+    subdesc:
+      "It wasn’t about complex web development — it was about giving real help during a difficult time for people.",
+    href: "https://khkhachatur.github.io/ARTE-final/#",
+    video: "/videos/project/arma.mp4",
+    logo: "/assets/arte.svg",
 
-  //   tags: [
-  //     {
-  //       id: 1,
-  //       name: "HTML5",
-  //       path: "/assets/html5.png",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "CSS3",
-  //       path: "assets/css3.png",
-  //     },
-  //   ],
-  // },
+    tags: [
+      {
+        id: 1,
+        name: "HTML5",
+        path: "/assets/html5.png",
+      },
+      {
+        id: 2,
+        name: "CSS3",
+        path: "assets/css3.png",
+      },
+    ],
+  },
   // {
   //   title: "",
   //   desc: "",

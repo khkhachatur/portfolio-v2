@@ -1,62 +1,45 @@
 import { useEffect, useRef, useState } from "react";
+import Core from "smooothy";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ExternalLink, Github, Play } from "lucide-react";
-
+import { ExternalLink, Github } from "lucide-react";
 import { myProjects } from "../Constants/index";
 
-gsap.registerPlugin(ScrollTrigger);
+import Title from "../Components/Title";
 
-const Projects = () => {
-  const sectionRef = useRef(null);
-  const gridRef = useRef(null);
-  const videoRefs = useRef([]);
-  const [hoveredProject, setHoveredProject] = useState(null);
+function useSmooothy(config = {}) {
+  const sliderRef = useRef(null);
+  const [slider, setSlider] = useState(null);
+
+  const refCallback = (node) => {
+    if (node && !slider) {
+      const instance = new Core(node, config);
+      gsap.ticker.add(instance.update.bind(instance));
+      setSlider(instance);
+    }
+    sliderRef.current = node;
+  };
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Fade in title
-      gsap.from(".projects-title", {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      });
+    return () => {
+      if (slider) {
+        gsap.ticker.remove(slider.update.bind(slider));
+        slider.destroy();
+      }
+    };
+  }, [slider]);
 
-      // Animate cards in
-      gsap.from(".project-card", {
-        opacity: 0,
-        y: 80,
-        duration: 0.9,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: "top 75%",
-        },
-      });
+  return { ref: refCallback, slider };
+}
 
-      // Pin the section
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=150%",
-        scrub: 2.5,
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+export default function Projects() {
+  const { ref } = useSmooothy({ direction: "horizontal", lerp: 0.3 });
+  const [hoveredProject, setHoveredProject] = useState(null);
+  const videoRefs = useRef([]);
 
   const handleMouseEnter = (index) => {
     setHoveredProject(index);
-    if (videoRefs.current[index]) {
+    if (videoRefs.current[index])
       videoRefs.current[index].play().catch(() => {});
-    }
   };
 
   const handleMouseLeave = (index) => {
@@ -69,33 +52,27 @@ const Projects = () => {
 
   return (
     <section
-      ref={sectionRef}
       id="projects"
-      className="project-container flex flex-col items-center justify-center py-24"
+      className="project-container flex flex-col items-center justify-center py-24 overflow-hidden bg-[#0f0f0f]"
     >
-      <div className="w-full max-w-[1400px] mx-auto flex flex-col items-center">
-        {/* Title */}
-        <div className="projects-title text-center mb-20 px-6">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">
-            Featured Projects
-          </h2>
-          <p className="text-gray-300 text-base md:text-lg">
-            A selection of my most creative and technical works
-          </p>
-        </div>
-
-        <div
-          ref={gridRef}
-          className=" grid grid-cols-1 gap-y-14  px-4 sm:px-8 md:px-16 lg:px-24"
-        >
-          {myProjects.map((project, index) => (
-            <div
-              key={index}
-              className="project-card group mx-auto"
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
-            >
-              {/* Background video */}
+      <div className=" text-center mb-20 px-6">
+        <Title secTitle="Featured Projects" />
+        <p className="text-gray-300 text-base md:text-lg">
+          A selection of my most creative and technical works
+        </p>
+      </div>
+      <div
+        className="py-sm pb-xl flex w-screen overflow-x-hidden px-[calc(50%-40vw)] focus:outline-none md:px-[calc(50%-30vw)]"
+        ref={ref}
+      >
+        {myProjects.map((project, index) => (
+          <div
+            key={index}
+            className="flex aspect-[16/9] w-[80vw] md:w-[60vw] shrink-0 items-center justify-center p-4"
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
+          >
+            <div className="relative h-full w-full rounded-2xl overflow-hidden">
               <div className="absolute inset-0">
                 {project.video && (
                   <video
@@ -113,62 +90,65 @@ const Projects = () => {
                 )}
               </div>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
 
+              {/* Text content */}
               <div className="absolute bottom-0 p-6 flex flex-col justify-end z-10">
                 <h3
-                  className={`text-2xl font-bold mb-2 transition-colors duration-300 ${
+                  className={`lg:text-2xl md:text-xl sm:text-lg text-[xs] font-bold mb-2 transition-colors duration-300 ${
                     hoveredProject === index ? "text-main-red" : "text-white"
                   }`}
                 >
                   {project.title}
                 </h3>
-                <p className="text-gray-300 text-sm mb-4 ">{project.desc}</p>
+                <p className="text-gray-300  lg:text-sm md:text-xs sm:text-[10px] text-[7px] sm:mb-4 mb-1">
+                  {project.desc}
+                </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap sm:gap-2 gap-0.5 sm:mb-4 mb-1">
                   {project.tags?.map((tag) => (
                     <span
                       key={tag.id}
-                      className="px-3 py-1 text-xs bg-white/10 rounded-full text-gray-300"
+                      className="sm:px-3 px-1 sm:py-1 py-0.5 lg:text-sm md:text-[10px] sm:text-[10px] text-[7px] bg-white/10 rounded-full text-gray-300"
                     >
                       {tag.name}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex sm:gap-3 gap-1">
                   {project.href && (
                     <a
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs transition-all"
+                      className="flex items-center sm:gap-2 gap-1 sm:px-3 px-1 sm:py-2 py-1 bg-white/10 hover:bg-white/20 rounded-lg lg:text-sm md:text-[10px] sm:text-[10px] text-[7px] transition-all"
                     >
-                      <ExternalLink size={14} /> Demo
+                      <ExternalLink className="lg:w-5 sm:w-3 w-2" /> Demo
                     </a>
                   )}
                   <a
                     href={project.gitLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs transition-all"
+                    className="flex items-center sm:gap-2 gap-1 sm:px-3 px-1 sm:py-2 py-1 bg-white/10 hover:bg-white/20 rounded-lg lg:text-sm md:text-[10px] sm:text-[10px] text-[7px] transition-all"
                   >
-                    <Github size={14} /> Code
+                    <Github className="lg:w-5 sm:w-3 w-2" /> Code
                   </a>
                 </div>
               </div>
 
-              <div className="absolute top-4 right-4 text-xs bg-main-red/80 px-3 py-1 rounded-full font-medium">
+              <div className="absolute top-4 right-4 sm:text-xs text-[8px] bg-main-red/80 sm:px-3 px-1.5 sm:py-1 py-0.5 rounded-full font-medium">
                 0{index + 1}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       <div className="text-center mt-20 flex flex-col items-center gap-4">
         <p className="text-gray-400 text-sm md:text-base tracking-wide">
-          Hover to preview | Scroll to explore
+          Hover to preview | Smooth horizontal scroll
         </p>
         <a
           href="https://github.com/khkhachatur"
@@ -181,6 +161,4 @@ const Projects = () => {
       </div>
     </section>
   );
-};
-
-export default Projects;
+}
