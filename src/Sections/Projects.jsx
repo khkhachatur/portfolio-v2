@@ -7,6 +7,8 @@ import { myProjects } from "../Constants/index";
 import Title from "../Components/Title";
 
 function useSmooothy(config = {}) {
+  console.log("Project is here");
+
   const sliderRef = useRef(null);
   const [slider, setSlider] = useState(null);
 

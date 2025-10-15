@@ -2,6 +2,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const Education = () => {
+  console.log("Education is here");
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {

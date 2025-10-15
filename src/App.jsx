@@ -13,6 +13,7 @@ import Education from "./Sections/Education";
 // import Responsive from "./Sections/Responsive.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
+console.log("app.jsx is here");
 
 function App() {
   return (

@@ -5,6 +5,8 @@ import { workExperiences } from "../Constants";
 import Title from "../Components/Title";
 
 const Work = () => {
+  console.log("Work is here");
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const cardRefs = useRef([]);

@@ -3,6 +3,8 @@ import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 
 const About = () => {
+  console.log("About is here");
+
   useGSAP(() => {
     gsap.registerPlugin(SplitText);
 

@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const Hero = () => {
   const [hasCopied, setHasCopied] = useState(false);
-
+  console.log("Hero is here");
   const handleCopy = () => {
     navigator.clipboard.writeText("khachatryankhachatur57@gmail.com");
     setHasCopied(true);

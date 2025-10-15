@@ -1,6 +1,8 @@
 import React from "react";
 
 const Futter = () => {
+  console.log("footer is here");
+
   return (
     <section>
       <div className="flex justify-between items-center text-[rgb(255,252,238,0.6)] px-5 py-5">

@@ -3,6 +3,8 @@ import emailjs from "@emailjs/browser";
 import { ExternalLink } from "lucide-react";
 
 const Contact = () => {
+  console.log("Contacts is here");
+
   const formRef = useRef();
 
   const [loading, setLoading] = useState(false);
