@@ -2,7 +2,7 @@ export const myProjects = [
   {
     title: "GTA6 Landing Page",
     desc: "A highly interactive landing page inspired by GTA6, featuring smooth GSAP animations, engaging visuals, and responsive layouts that adapt seamlessly across all devices.",
-    href: "",
+    href: "https://khkhachatur.github.io/GTA-6-Landing-Page/",
     gitLink: "https://github.com/khkhachatur/GTA-6-Landing-Page",
     video: "/videos/project/gta6.mp4",
 
