@@ -1,10 +1,41 @@
 export const myProjects = [
   {
+    title: "Growi",
+
+    desc: "A real time Stock Web Application, where you can explore the market in real time. Search for companies that you are interested in, receive custom AI generated summary every day. ",
+    href: "https://real-time-stock-app.vercel.app/sign-in",
+    gitLink: "https://github.com/khkhachatur/real-time-stock-app",
+    video: "videos/project/stock-app.mp4",
+
+    tags: [
+      {
+        id: 1,
+        name: "Next.js",
+      },
+      {
+        id: 2,
+        name: "TypeScript",
+      },
+      {
+        id: 3,
+        name: "TailwindCSS",
+      },
+      {
+        id: 4,
+        name: "Gemini Ai",
+      },
+      {
+        id: 5,
+        name: "MongoDB",
+      },
+    ],
+  },
+  {
     title: "GTA6 Landing Page",
     desc: "A highly interactive landing page inspired by GTA6, featuring smooth GSAP animations, engaging visuals, and responsive layouts that adapt seamlessly across all devices.",
     href: "https://khkhachatur.github.io/GTA-6-Landing-Page/",
     gitLink: "https://github.com/khkhachatur/GTA-6-Landing-Page",
-    video: "/videos/project/gta6.mp4",
+    video: "videos/project/gta6.mp4",
 
     tags: [
       {
@@ -28,7 +59,7 @@ export const myProjects = [
   {
     title: "ART FACTORY - Web",
     desc: "A modern online platform for an art collective, designed to showcase exhibitions, creative projects, and artist portfolios through an immersive, minimal, and interactive experience.",
-    video: "/videos/project/art-factory.mp4",
+    video: "videos/project/art-factory.mp4",
     gitLink: "https://github.com/khkhachatur/art_factory",
 
     tags: [
@@ -57,7 +88,7 @@ export const myProjects = [
     title: "Three JS 3D Portfolio",
     desc: "A fully interactive 3D portfolio built with Three.js, designed to showcase creativity through motion and immersion. This project combines real-time 3D rendering, smooth animations, and modern web technologies to create an engaging, story-driven experience.",
     gitLink: "https://github.com/khkhachatur/three-js-portfolio",
-    video: "/videos/project/three-js.mp4",
+    video: "videos/project/three-js.mp4",
     tags: [
       {
         id: 1,
@@ -85,8 +116,7 @@ export const myProjects = [
     title: "The Beach - QR Menu",
     desc: "A mobile-friendly digital menu for a beachfront restaurant, enabling visitors to scan QR codes, explore items, and place orders quickly and efficiently.",
     gitLink: "https://github.com/khkhachatur/Menu",
-    video: "/videos/project/qr-menu.mp4",
-    logo: "/assets/the-beach.svg",
+    video: "videos/project/qr-menu.mp4",
 
     tags: [
       {
@@ -113,8 +143,7 @@ export const myProjects = [
     subdesc:
       "It wasn’t about complex web development — it was about giving real help during a difficult time for people.",
     href: "https://khkhachatur.github.io/ARTE-final/#",
-    video: "/videos/project/arma.mp4",
-    logo: "/assets/arte.svg",
+    video: "videos/project/arma.mp4",
 
     tags: [
       {

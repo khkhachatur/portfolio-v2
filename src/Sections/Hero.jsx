@@ -225,17 +225,17 @@ const Hero = () => {
     <section>
       <div className="relative w-full overflow-hidden" id="start">
         <img
-          src="/images/khachatur.png"
+          src="images/khachatur.png"
           alt=""
           className="hero-bg"
           id="main-bg"
         />
         <div className="absolute flex justify-center">
-          <img src="/images/bg-1.png" alt="" id="bg-slice" />
-          <img src="/images/bg-2.png" alt="" id="bg-slice" />
-          <img src="/images/bg-3.png" alt="" id="bg-slice" />
-          <img src="/images/bg-4.png" alt="" id="bg-slice" />
-          <img src="/images/bg-5.png" alt="" id="bg-slice" />
+          <img src="images/bg-1.png" alt="" id="bg-slice" />
+          <img src="images/bg-2.png" alt="" id="bg-slice" />
+          <img src="images/bg-3.png" alt="" id="bg-slice" />
+          <img src="images/bg-4.png" alt="" id="bg-slice" />
+          <img src="images/bg-5.png" alt="" id="bg-slice" />
 
           <h2 className="hero-title-1" id="hero-title-1">
             Scroll to see my
@@ -262,7 +262,7 @@ const Hero = () => {
               <div onClick={handleCopy} className="flex item-center">
                 <img
                   className="w-5 h-5"
-                  src={hasCopied ? "/icons/tick.svg" : "/icons/copy.svg"}
+                  src={hasCopied ? "icons/tick.svg" : "icons/copy.svg"}
                   alt="copy"
                 />
               </div>
@@ -274,7 +274,7 @@ const Hero = () => {
                 rel="noreferrer noopener"
                 className="social-icon"
               >
-                <img src="/icons/github.png" alt="githab-logo" />
+                <img src="icons/github.png" alt="githab-logo" />
               </a>
               <a
                 href="https://www.instagram.com/khcho_k/"
@@ -282,7 +282,7 @@ const Hero = () => {
                 rel="noreferrer noopener"
                 className="social-icon"
               >
-                <img src="/icons/instagram.png" alt="githab-logo" />
+                <img src="icons/instagram.png" alt="githab-logo" />
               </a>
               <a
                 href="https://web.telegram.org/#@kkkk_kkkk_kkkk_k"
@@ -290,7 +290,7 @@ const Hero = () => {
                 rel="noreferrer noopener"
                 className="social-icon"
               >
-                <img src="/icons/telegram.png" alt="githab-logo" />
+                <img src="icons/telegram.png" alt="githab-logo" />
               </a>
             </div>
           </div>

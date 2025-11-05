@@ -46,7 +46,7 @@ const Education = () => {
           Education
         </h2>
         <img
-          src="/images/msu.png"
+          src="images/msu.png"
           alt="MSU"
           className="education-img z-10 drop-shadow-xl"
         />
